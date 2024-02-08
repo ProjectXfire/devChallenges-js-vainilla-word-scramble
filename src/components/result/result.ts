@@ -1,8 +1,9 @@
+import { Game } from "..";
 import { type TResultElements } from "../../type";
 import "./result.css";
 
 const dialogContainer = document.createElement("div");
-dialogContainer.className = "dialog-container";
+dialogContainer.className = "dialog-container hide";
 
 const dialog = `
   <article class="dialog">
@@ -15,15 +16,13 @@ const dialog = `
   </article>
 `;
 
+dialogContainer.innerHTML += dialog;
+
 export class Result {
-  constructor() {
-    dialogContainer.innerHTML += dialog;
-    this.dialogComponent = dialogContainer;
-  }
+  constructor() {}
 
   private static result: Result;
-  private mainComponents: HTMLElement | null = null;
-  private dialogComponent: HTMLElement;
+  private dialogComponent: HTMLElement | null = null;
   private elements: TResultElements = {
     dialogMessage: null,
     dialogTitle: null,
@@ -35,21 +34,23 @@ export class Result {
     return Result.result;
   }
 
-  setupDialog(elem: HTMLElement) {
-    this.mainComponents = elem;
-  }
-
-  openDialog() {
-    if (!this.mainComponents) return;
-    this.mainComponents.appendChild(this.dialogComponent);
+  renderIn(elem: HTMLElement) {
+    elem.append(dialogContainer);
+    this.dialogComponent = dialogContainer;
     this.setupElements();
     this.setupListeners();
   }
 
+  openDialog() {
+    if (!this.dialogComponent) return;
+    this.dialogComponent.classList.remove("hide");
+  }
+
   closeDialog() {
-    if (!this.mainComponents) return;
-    this.closeListeners();
-    this.mainComponents.removeChild(this.dialogComponent);
+    if (!this.dialogComponent) return;
+    this.dialogComponent.classList.add("hide");
+    const game = Game.instance();
+    game.setInitFocus();
   }
 
   private setupElements() {
@@ -66,11 +67,6 @@ export class Result {
   private setupListeners() {
     const { closeDialog } = this.elements;
     closeDialog?.addEventListener("click", this.closeDialog.bind(this));
-  }
-
-  private closeListeners() {
-    const { closeDialog } = this.elements;
-    closeDialog?.removeEventListener("click", this.closeDialog.bind(this));
   }
 
   setWinMessage(word: string) {

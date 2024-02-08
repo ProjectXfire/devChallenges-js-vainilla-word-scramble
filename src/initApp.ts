@@ -6,5 +6,5 @@ export function initApp(mainElement: HTMLElement) {
   const resultDialog = Result.instance();
   logo.renderIn(mainElement);
   game.renderIn(mainElement);
-  resultDialog.setupDialog(mainElement);
+  resultDialog.renderIn(mainElement);
 }

@@ -132,7 +132,7 @@ export class Game {
 
   getRandomWord(): { word: string; disorderedWord: string } {
     const wordsCollection = data.words;
-    const randomNumber = Number((Math.random() * 99).toFixed(0));
+    const randomNumber = Number((Math.random() * data.length - 1).toFixed(0));
     const wordSeleted = wordsCollection[randomNumber];
     const disorderedWord = this.getDisorderedWord(wordSeleted);
     return {
@@ -200,6 +200,10 @@ export class Game {
     gameTable.innerHTML = "";
     this.elements.blocksLetters = [];
     for (let i = 0; i < sizeWord; i++) {
+      const letterContainer = document.createElement("div");
+      const letterLine = document.createElement("div");
+      letterLine.className = "game-table__line";
+      letterContainer.className = "game-table__letter-container";
       const letter = document.createElement("input");
       letter.id = `letter-${i}`;
       letter.className = "game-table__letter";
@@ -207,15 +211,17 @@ export class Game {
       letter.maxLength = 1;
       letter.disabled = i !== 0 && true;
       letter.addEventListener("input", this.handleInputValue.bind(this));
+      letterContainer.appendChild(letter);
+      letterContainer.appendChild(letterLine);
       this.elements.blocksLetters.push(letter);
-      gameTable.appendChild(letter);
+      gameTable.appendChild(letterContainer);
     }
+    this.setInitFocus();
   }
 
-  setInputFocus(currentPos: number): void {
-    if (currentPos > this.wordSelected.length - 1) return;
-    const input = document.getElementById(`letter-${currentPos}`);
-    input?.focus();
+  setInitFocus(): void {
+    const { blocksLetters } = this.elements;
+    blocksLetters[0].focus();
   }
 
   canStillPlaying(mistakes: string[]): boolean {

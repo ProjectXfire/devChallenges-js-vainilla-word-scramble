@@ -86,9 +86,39 @@
   gap: 10px;
 }
 
-.game-table__letter {
+.game-table__letter-container {
+  position: relative;
   width: 45px;
   height: 45px;
+}
+
+.game-table__line {
+  width: 20px;
+  height: 2px;
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%);
+  background-color: var(--color-2);
+  animation: animate-line 1500ms infinite;
+}
+
+@keyframes animate-line {
+  0% {
+    width: 1px;
+  }
+  50% {
+    width: 15px;
+  }
+  100% {
+    width: 1px;
+  }
+}
+
+.game-table__letter {
+  width: 100%;
+  height: 100%;
   text-align: center;
   background-color: transparent;
   color: var(--color-7);
@@ -96,10 +126,15 @@
   border-radius: var(--border-radius-2);
   font-size: var(--text-normal);
   outline: none;
+  caret-color: transparent;
+}
+
+.game-table__letter-container:focus-within .game-table__line {
+  display: block;
 }
 
 .game-table__letter:focus {
-  border: 2px solid var(--color-2);
+  border: 2px solid var(--color-3);
 }
 
 .actions {
