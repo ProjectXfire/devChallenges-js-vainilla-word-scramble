@@ -1,0 +1,78 @@
+.dialog-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  opacity: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.dialog {
+  width: 95%;
+  max-width: 400px;
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--color-1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--border-radius-2);
+}
+
+.dialog-word {
+  color: var(--color-2);
+  font-weight: 500;
+}
+
+.dialog__title {
+  font-size: var(--text-large);
+  font-weight: 500;
+  color: var(--color-7);
+  text-shadow: 0 0 10px var(--color-2), 0 0 20px var(--color-2);
+}
+
+.dialog__message {
+  color: var(--color-7);
+  font-size: 15px;
+}
+
+.dialog__actions {
+  position: relative;
+}
+
+.dialog__actions button {
+  width: 100%;
+  padding: 10px 30px;
+  position: relative;
+  top: -5px;
+  font-size: var(--text-button);
+  color: var(--color-7);
+  background-color: var(--color-2);
+  border-radius: var(--border-radius-2);
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+  transition: top 50ms ease-in-out;
+}
+
+.button-extend {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-3);
+  border-radius: var(--border-radius-2);
+  z-index: 1;
+}
+
+.dialog__actions button:active {
+  top: 0;
+}

@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200;400;500&display=swap");
+
+:root {
+  font-family: "Sora", sans-serif;
+  --color-1: #7429c6;
+  --color-2: #c951e7;
+  --color-3: #672171;
+  --color-4: #4a5567;
+  --color-5: #97a3b6;
+  --color-6: #1b1e30;
+  --color-7: #f2f5f9;
+  --color-8: #030616;
+  --color-8-opacity: rgba(#030616, 0.5);
+  --text-small: 12px;
+  --text-normal: 20px;
+  --text-large: 28px;
+  --text-button: 14px;
+  --border-radius-1: 12px;
+  --border-radius-2: 5px;
+  --border-circle: 50%;
+}
+
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  font-size: var(--text-normal);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.container {
+  width: 95%;
+  min-height: 100px;
+  max-width: 500px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  background-color: var(--color-6);
+  border-radius: var(--border-radius-1);
+}

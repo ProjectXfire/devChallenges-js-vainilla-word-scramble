@@ -1,0 +1,157 @@
+.word-guess {
+  width: 100%;
+  position: relative;
+}
+
+.word-guess__text {
+  position: relative;
+  width: 100%;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-normal);
+  letter-spacing: 17px;
+  border: 1px solid var(--color-8-opacity);
+  border-radius: var(--border-radius-2);
+  background-color: var(--color-4);
+  color: var(--color-5);
+  z-index: 1;
+}
+
+.word-guess__shadow {
+  width: 99%;
+  height: 100%;
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  background-color: black;
+  border-radius: var(--border-radius-2);
+  z-index: 0;
+}
+
+.game-status {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-small);
+  color: var(--color-4);
+  font-weight: 500;
+}
+
+.tries {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tries__status {
+  padding-top: 2px;
+  display: flex;
+  gap: 5px;
+}
+
+.tries__status-circle {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-4);
+  border-radius: var(--border-circle);
+}
+
+.active-circle {
+  background-color: var(--color-1);
+}
+
+.mistakes {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mistakes__text {
+  font-size: var(--text-button);
+  color: var(--color-5);
+}
+
+.game-table {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-table__letter {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  background-color: transparent;
+  color: var(--color-7);
+  border: 2px solid var(--color-4);
+  border-radius: var(--border-radius-2);
+  font-size: var(--text-normal);
+  outline: none;
+}
+
+.game-table__letter:focus {
+  border: 2px solid var(--color-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.actions__button {
+  position: relative;
+}
+
+.actions__button button {
+  width: 100%;
+  padding: 10px 30px;
+  position: relative;
+  top: -5px;
+  font-size: var(--text-button);
+  color: var(--color-7);
+  background-color: var(--color-2);
+  border-radius: var(--border-radius-2);
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+  transition: top 50ms ease-in-out;
+}
+
+.button-extend {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-3);
+  border-radius: var(--border-radius-2);
+  z-index: 1;
+}
+
+.actions__button button:active {
+  top: 0;
+}
+
+@media screen and (min-width: 500px) {
+  .game-status {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+  }
+  .word-guess__text {
+    font-size: var(--text-large);
+  }
+  .actions {
+    gap: 80px;
+  }
+}
