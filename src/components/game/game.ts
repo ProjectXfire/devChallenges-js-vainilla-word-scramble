@@ -132,9 +132,10 @@ export class Game {
 
   getRandomWord(): { word: string; disorderedWord: string } {
     const wordsCollection = data.words;
-    const randomNumber = Number((Math.random() * data.length - 1).toFixed(0));
+    const randomNumber = Math.floor(Math.random() * data.length);
     const wordSeleted = wordsCollection[randomNumber];
     const disorderedWord = this.getDisorderedWord(wordSeleted);
+    console.log({ i: randomNumber, word: wordSeleted });
     return {
       word: wordSeleted,
       disorderedWord,

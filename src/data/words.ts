@@ -125,7 +125,7 @@ export const data: { words: string[]; length: number } = {
     "candelero",
     "sombrerera",
     "tijereta",
-    "sábana",
+    "sabana",
     "represion",
     "mascarilla",
     "castañuela",
