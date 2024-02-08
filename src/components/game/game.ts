@@ -135,7 +135,6 @@ export class Game {
     const randomNumber = Math.floor(Math.random() * data.length);
     const wordSeleted = wordsCollection[randomNumber];
     const disorderedWord = this.getDisorderedWord(wordSeleted);
-    console.log({ i: randomNumber, word: wordSeleted });
     return {
       word: wordSeleted,
       disorderedWord,
